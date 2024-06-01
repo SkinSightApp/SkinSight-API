@@ -14,8 +14,8 @@ const login = async ({ payload }, h) => {
 
     if (!user) {
       return h.response({
-        status: 'error',
-        message: 'Credentials are not correct!',
+        status: 'fail',
+        message: 'Credentials are incorrect!',
       }).code(400);
     }
 
@@ -23,8 +23,8 @@ const login = async ({ payload }, h) => {
 
     if (!isValid) {
       return h.response({
-        status: 'error',
-        message: 'Credentials are not correct!',
+        status: 'fail',
+        message: 'Credentials are incorrect!',
       }).code(400);
     }
 
