@@ -13,7 +13,7 @@ async function addUserToFirestore(user) {
 }
 
 // Handler untuk rute registrasi
-const registerHandler = async (request, h) => {
+const register = async (request, h) => {
     const { name, email, password } = request.payload;
 
     // Validasi input (tambahkan validasi sesuai kebutuhan)
