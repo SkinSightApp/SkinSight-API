@@ -25,9 +25,7 @@
     "@tensorflow/tfjs-node": "^4.19.0",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
-    "joi": "^17.12.2",
-    "mysql2": "^3.9.2",
-    "sequelize": "^6.37.1"
+    "joi": "^17.12.2"
   },
   "imports": {
     "#root/*": "./*",
