@@ -1,13 +1,13 @@
-const { Firestore } = require('@google-cloud/firestore');
 const Boom = require('@hapi/boom');
 const Bcrypt = require('bcrypt');
+const { Timestamp } = require('@google-cloud/firestore');
 
 // Inisialisasi Firestore
-const firestore = new Firestore();
+const db = require('#root/src/config/firestore.js');
 
 // Fungsi untuk menambahkan user ke Firestore
 async function addUserToFirestore(user) {
-  const usersCollection = firestore.collection('users');
+  const usersCollection = db.collection('users');
   const result = await usersCollection.add(user);
   return result.id;
 }
@@ -24,12 +24,16 @@ const register = async (request, h) => {
   // Hash password sebelum menyimpan ke Firestore
   const hashedPassword = await Bcrypt.hash(password, 10);
 
+  // Initialize timestamp
+  const timestamp = Timestamp.fromDate(new Date());
+
   // Buat objek user
   const user = {
     name,
     email,
     password: hashedPassword,
-    createdAt: new Date().toISOString(),
+    createdAt: timestamp,
+    updatedAt: timestamp,
   };
 
   try {

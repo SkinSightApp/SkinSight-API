@@ -13,6 +13,20 @@ const routes = [{
   },
   handler: exampleService,
 }, {
+  method: 'POST',
+  path: '/register',
+  options: {
+    auth: false,
+    validate: {
+      payload: Joi.object({
+        name: Joi.string(),
+        email: Joi.string().email(),
+        password: Joi.string().min(6).required(),
+      }),
+    },
+  },
+  handler: register,
+}, {
   path: '/login',
   method: 'POST',
   options: {
@@ -29,10 +43,6 @@ const routes = [{
   path: '/user',
   method: 'GET',
   handler: profile,
-}, {
-  method: 'POST',
-  path: '/register',
-  handler: register,
 }];
 
 module.exports = routes;
