@@ -1,17 +1,16 @@
 const Bcrypt = require('bcrypt');
 const Jwt = require('@hapi/jwt');
 const { boomify } = require('@hapi/boom');
-const { User } = require('#models/index.js');
+
+const db = require('#src/config/firestore.js');
+const mapDocuments = require('#src/utils/mapDocuments.js');
 
 const { env } = process;
 
 const login = async ({ payload }, h) => {
   try {
-    const user = await User.findOne({
-      where: {
-        email: payload.email,
-      },
-    });
+    const collection = await db.collection('users').where('email', '=', payload.email).get();
+    const user = mapDocuments(collection)[0];
 
     if (!user) {
       return h.response({
