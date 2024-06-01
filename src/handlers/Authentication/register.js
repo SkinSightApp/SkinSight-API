@@ -1,6 +1,7 @@
 const Boom = require('@hapi/boom');
 const Bcrypt = require('bcrypt');
 const { Timestamp } = require('@google-cloud/firestore');
+const InputError = require('#src/exceptions/InputError.js');
 
 // Inisialisasi Firestore
 const db = require('#root/src/config/firestore.js');
@@ -8,8 +9,13 @@ const db = require('#root/src/config/firestore.js');
 // Fungsi untuk menambahkan user ke Firestore
 async function addUserToFirestore(user) {
   const usersCollection = db.collection('users');
-  const result = await usersCollection.add(user);
-  return result.id;
+  const existedUser = await usersCollection.where('email', '=', user.email).get();
+
+  if (existedUser.empty) {
+    const result = await usersCollection.add(user);
+    return result.id;
+  }
+  throw new InputError('User is existed');
 }
 
 // Handler untuk rute registrasi
@@ -39,10 +45,13 @@ const register = async (request, h) => {
   try {
     // Simpan user ke Firestore
     const userId = await addUserToFirestore(user);
-    return h.response({ message: 'User registered successfully', userId }).code(201);
+    return h.response({
+      status: 'success',
+      message: 'User registered successfully',
+      userId,
+    }).code(201);
   } catch (error) {
-    console.error('Error saving user to Firestore:', error);
-    throw Boom.internal('Internal Server Error', error);
+    throw Boom.badRequest(error);
   }
 };
 
