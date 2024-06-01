@@ -4,7 +4,7 @@ const { Timestamp } = require('@google-cloud/firestore');
 const InputError = require('#src/exceptions/InputError.js');
 
 // Inisialisasi Firestore
-const db = require('#root/src/config/firestore.js');
+const db = require('#src/config/firestore.js');
 
 // Fungsi untuk menambahkan user ke Firestore
 async function addUserToFirestore(user) {

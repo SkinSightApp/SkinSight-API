@@ -1,9 +1,9 @@
 const Joi = require('joi');
 
-const exampleService = require('#root/src/handlers/Example/exampleService.js');
-const login = require('#root/src/handlers/Authentication/login.js');
-const profile = require('#root/src/handlers/Authentication/profile.js');
-const register = require('#root/src/handlers/Authentication/register.js')
+const exampleService = require('#src/handlers/Example/exampleService.js');
+const login = require('#src/handlers/Authentication/login.js');
+const profile = require('#src/handlers/Authentication/profile.js');
+const register = require('#src/handlers/Authentication/register.js')
 
 const routes = [{
   path: '/',
