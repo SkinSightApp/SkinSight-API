@@ -3,7 +3,7 @@ require('dotenv').config();
 const Jwt = require('@hapi/jwt');
 const Hapi = require('@hapi/hapi');
 const routes = require('#src/routes.js');
-const onPreResponse = require("#src/utils/onPreResponse.js");
+const onPreResponse = require('#src/utils/onPreResponse.js');
 
 const { env } = process;
 
@@ -41,7 +41,7 @@ const init = async () => {
   server.auth.default('auth_jwt');
 
   server.route(routes);
-  server.ext("onPreResponse", (request, h) => onPreResponse(request, h));
+  server.ext('onPreResponse', (request, h) => onPreResponse(request, h));
 
   await server.start();
   console.log(`Server is started at ${server.info.uri}`);
