@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-boilerplate",
+  "name": "skinsight-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,10 +17,12 @@
     "sequelize-cli": "^6.6.2"
   },
   "dependencies": {
+    "@google-cloud/firestore": "^7.7.0",
     "@hapi/basic": "^7.0.2",
     "@hapi/boom": "^10.0.1",
     "@hapi/hapi": "^21.3.7",
     "@hapi/jwt": "^3.2.0",
+    "@tensorflow/tfjs-node": "^4.19.0",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "joi": "^17.12.2",
