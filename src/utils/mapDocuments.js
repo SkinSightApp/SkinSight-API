@@ -9,6 +9,7 @@ const mapDocuments = (collections) => {
         ? collection.updatedAt.toDate()
         : null;
       return {
+        id: doc.id,
         ...collection,
         createdAt,
         updatedAt,
