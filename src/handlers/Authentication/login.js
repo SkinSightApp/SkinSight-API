@@ -46,7 +46,14 @@ const login = async ({ payload }, h) => {
     return h.response({
       status: 'success',
       message: 'You have logged in successfully!',
-      data: { token },
+      data: {
+        token,
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+        },
+      },
     });
   } catch (error) {
     return boomify(error);
