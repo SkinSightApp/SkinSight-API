@@ -50,8 +50,7 @@ const login = async ({ payload }, h) => {
         token,
         user: {
           id: user.id,
-          name: user.name,
-          email: user.email,
+          name: user.name
         },
       },
     });
