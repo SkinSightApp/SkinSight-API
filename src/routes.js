@@ -3,7 +3,8 @@ const Joi = require('joi');
 const exampleService = require('#src/handlers/Example/exampleService.js');
 const login = require('#src/handlers/Authentication/login.js');
 const profile = require('#src/handlers/Authentication/profile.js');
-const register = require('#src/handlers/Authentication/register.js')
+const register = require('#src/handlers/Authentication/register.js');
+const predict = require('#src/handlers/Prediction/predict.js');
 
 const routes = [{
   path: '/',
@@ -43,6 +44,10 @@ const routes = [{
   path: '/user',
   method: 'GET',
   handler: profile,
+}, {
+  path: '/predict',
+  method: 'POST',
+  handler: predict,
 }];
 
 module.exports = routes;

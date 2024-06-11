@@ -3,6 +3,7 @@ require('dotenv').config();
 const Jwt = require('@hapi/jwt');
 const Hapi = require('@hapi/hapi');
 const routes = require('#src/routes.js');
+const loadModel = require('#src/services/loadModel.js');
 const onPreResponse = require('#src/utils/onPreResponse.js');
 
 const { env } = process;
@@ -39,6 +40,9 @@ const init = async () => {
     }),
   });
   server.auth.default('auth_jwt');
+
+  const model = await loadModel();
+  server.app.model = model;
 
   server.route(routes);
   server.ext('onPreResponse', (request, h) => onPreResponse(request, h));
