@@ -12,7 +12,12 @@ const profile = async (request, h) => {
     status: 'success',
     message: `Hello, ${credentials.user.name}!`,
     data: {
-      user: { ...user, createdAt, updatedAt },
+      user: {
+        id: credentials.user.id,
+        ...user,
+        createdAt,
+        updatedAt,
+      },
     },
   });
 };
