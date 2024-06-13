@@ -41,8 +41,8 @@ const init = async () => {
   });
   server.auth.default('auth_jwt');
 
-  const model = await loadModel();
-  server.app.model = model;
+  // const model = await loadModel();
+  // server.app.model = model;
 
   server.route(routes);
   server.ext('onPreResponse', (request, h) => onPreResponse(request, h));
