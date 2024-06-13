@@ -44,10 +44,10 @@ const routes = [{
   path: '/user',
   method: 'GET',
   handler: profile,
-}, {
-  path: '/predict',
-  method: 'POST',
-  handler: predict,
+// }, {
+//   path: '/predict',
+//   method: 'POST',
+//   handler: predict,
 }];
 
 module.exports = routes;
