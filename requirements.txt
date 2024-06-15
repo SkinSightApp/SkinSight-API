@@ -4,3 +4,4 @@ pydantic
 tensorflow
 typing
 uvicorn
+pillow
