@@ -1,10 +1,8 @@
 FROM python:3.11.4
 
-WORKDIR /app
+WORKDIR /
 
-COPY requirement.txt requirement.txt
-
-RUN pip install -r requirement.txt
+RUN pip install -r requirements.txt
 
 COPY . .
 

@@ -1,16 +1,17 @@
 from os import environ
 from flask import Flask, jsonify, request
 from waitress import serve
+from urllib.request import urlretrieve
+
 import numpy as np
 import tensorflow as tf
 import PIL
 import PIL.Image
-import urllib
 
 IMAGE_SHAPE = [224, 224]
 model_url = environ.get('MODEL_URL')
 model_path = 'model.h5'
-urllib.request.urlretrieve(model_url, 'model.h5')
+urlretrieve(model_url, 'model.h5')
 class_names = []
 
 app = Flask(__name__)

@@ -3,4 +3,4 @@ numpy
 tensorflow
 pillow
 waitress
-urllib
+urllib3
