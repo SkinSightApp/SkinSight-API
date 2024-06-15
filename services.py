@@ -14,7 +14,7 @@ IMAGE_CHANNELS = 3
 CLASSES = ['Acne', 'Blackhead', 'Redness']
 
 def load_model():
-    path = 'model.h5'
+    path = 'model'
     model = tf.keras.models.load_model(path, custom_objects={'f1_m': f1_m})
     return model
 
