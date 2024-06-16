@@ -48,6 +48,10 @@ const routes = [{
 //   path: '/predict',
 //   method: 'POST',
 //   handler: predict,
+}, {
+  path: '/products',
+  method: 'GET',
+  handler: product,
 }];
 
 module.exports = routes;
