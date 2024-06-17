@@ -4,7 +4,7 @@ const exampleService = require('#src/handlers/Example/exampleService.js');
 const login = require('#src/handlers/Authentication/login.js');
 const profile = require('#src/handlers/Authentication/profile.js');
 const register = require('#src/handlers/Authentication/register.js');
-const predict = require('#src/handlers/Prediction/predict.js');
+const saveProducts = require('#src/handlers/Products/saveProducts.js');
 
 const routes = [{
   path: '/',
@@ -45,13 +45,13 @@ const routes = [{
   method: 'GET',
   handler: profile,
 // }, {
-//   path: '/predict',
-//   method: 'POST',
-//   handler: predict,
+//   path: '/products',
+//   method: 'GET',
+//   handler: product,
 }, {
   path: '/products',
-  method: 'GET',
-  handler: product,
+  method: 'POST',
+  handler: saveProducts,
 }];
 
 module.exports = routes;

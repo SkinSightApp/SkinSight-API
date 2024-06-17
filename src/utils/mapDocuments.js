@@ -1,16 +1,16 @@
-const mapDocuments = (collections) => {
-  if (!collections.empty) {
-    const documents = collections.docs.map((doc) => {
-      const collection = doc.data();
-      const createdAt = collection.createdAt
-        ? collection.createdAt.toDate()
+const mapDocuments = (collection) => {
+  if (!collection.empty) {
+    const documents = collection.docs.map((doc) => {
+      const document = doc.data();
+      const createdAt = document.createdAt
+        ? document.createdAt.toDate()
         : null;
-      const updatedAt = collection.updatedAt
-        ? collection.updatedAt.toDate()
+      const updatedAt = document.updatedAt
+        ? document.updatedAt.toDate()
         : null;
       return {
         id: doc.id,
-        ...collection,
+        ...document,
         createdAt,
         updatedAt,
       };
