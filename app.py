@@ -1,6 +1,5 @@
 from fastapi import FastAPI, File, UploadFile
 from services import predict, read_image
-from utils.format_output import ImagePred
 
 import uvicorn
 
@@ -25,7 +24,7 @@ async def predict_image(file: UploadFile = File(...)):
     response = {}
     response['status'] = 'success'
     response['message'] = 'Predict success'
-    response['data'] = prediction['top_2']
+    response['data'] = prediction
     return response
 
 
