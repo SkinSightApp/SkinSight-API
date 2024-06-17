@@ -21,7 +21,7 @@ const getCategory = async (value) => {
   return null;
 };
 
-const saveProducts = async (request, h) => {
+const store = async (request, h) => {
   const { products } = request.payload;
 
   const failures = [];
@@ -94,4 +94,4 @@ const saveProducts = async (request, h) => {
   }
 };
 
-module.exports = saveProducts;
+module.exports = store;

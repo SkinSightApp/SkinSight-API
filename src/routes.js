@@ -4,7 +4,7 @@ const exampleService = require('#src/handlers/Example/exampleService.js');
 const login = require('#src/handlers/Authentication/login.js');
 const profile = require('#src/handlers/Authentication/profile.js');
 const register = require('#src/handlers/Authentication/register.js');
-const saveProducts = require('#src/handlers/Products/saveProducts.js');
+const storeCatalogs = require('#src/handlers/Catalogs/store.js');
 
 const routes = [{
   path: '/',
@@ -51,7 +51,7 @@ const routes = [{
 }, {
   path: '/products',
   method: 'POST',
-  handler: saveProducts,
+  handler: storeCatalogs,
 }];
 
 module.exports = routes;
