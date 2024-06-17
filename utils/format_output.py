@@ -12,18 +12,23 @@ class ImagePred(BaseModel):
 # Format model prediction to JSON
 # for easy-to-read api response.
 def format_image_pred(pred, classes):
-    output = {}
-    output['classes'] = classes
-    output['prob'] = pred[0].tolist()
-    output['top_2'] = {}
+    data = {}
+    data['classes'] = classes
+    data['prob'] = pred[0].tolist()
+    data['top_2'] = {}
+    
     top_2_ind = pred[0].argsort()[::-1][:2]
     top_2_prob = pred[0][top_2_ind]
     top_2_classes = np.array(classes)[top_2_ind]
+    
     for index, key in enumerate(top_2_classes):
-        output["top_2"][key] = top_2_prob[index].item()
-    output = ImagePred(classes=output['classes'], prob=output['prob'], top_2=output["top_2"])
-    return {
-        status: "success",
-        message: "Predict success",
-        data: output,
-    }
+        data["top_2"][key] = top_2_prob[index].item()
+        
+    data = ImagePred(classes=data['classes'], prob=data['prob'], top_2=data["top_2"])
+
+    output = {}
+    output['status'] = "success"
+    output['message'] = "Predict success"
+    output['data'] = data
+    
+    return output
