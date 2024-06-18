@@ -44,12 +44,12 @@ const routes = [{
   path: '/user',
   method: 'GET',
   handler: profile,
-// }, {
-//   path: '/products',
-//   method: 'GET',
-//   handler: product,
 }, {
   path: '/products',
+  method: 'GET',
+  handler: getProducts,
+}, {
+  path: '/addProducts',
   method: 'POST',
   handler: storeCatalogs,
 }];
