@@ -45,10 +45,6 @@ const routes = [{
   path: '/user',
   method: 'GET',
   handler: profile,
-// }, {
-//   path: '/products',
-//   method: 'GET',
-//   handler: product,
 }, {
   path: '/catalogs',
   method: 'POST',
