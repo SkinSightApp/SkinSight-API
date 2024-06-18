@@ -5,6 +5,7 @@ const login = require('#src/handlers/Authentication/login.js');
 const profile = require('#src/handlers/Authentication/profile.js');
 const register = require('#src/handlers/Authentication/register.js');
 const storeCatalogs = require('#src/handlers/Catalogs/store.js');
+const listCatalogs = require('#src/handlers/Catalogs/list.js');
 
 const routes = [{
   path: '/',
@@ -49,9 +50,13 @@ const routes = [{
 //   method: 'GET',
 //   handler: product,
 }, {
-  path: '/products',
+  path: '/catalogs',
   method: 'POST',
   handler: storeCatalogs,
+}, {
+  path: '/catalogs',
+  method: 'GET',
+  handler: listCatalogs,
 }];
 
 module.exports = routes;
