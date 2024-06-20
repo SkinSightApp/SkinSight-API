@@ -9,7 +9,7 @@ Cloud Computing is responsible for managing the flow of applications to the data
 
 ![alt text](https://github.com/rfqgal/SkinSight-API/blob/00e7b524f90da5e145caa3f0116a5f1f0b85e927/src/asset/Arsitektur%20Cloud%20Computing%20Capstone.jpg)
 
-The Architecture overview of the Snapmoo application encompasses the entire process from utilizing Node.js Haip to generate endpoints, while seamlessly integrating with Google Cloud Platform
+The Architecture overview of the SkinSight application encompasses the entire process from utilizing Node.js Haip to generate endpoints, while seamlessly integrating with Google Cloud Platform
 
 # Endpoint
 ## Base URL: https://skinsight-api-bvph3lxx3q-et.a.run.app  
